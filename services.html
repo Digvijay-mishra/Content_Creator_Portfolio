@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atharva • Services - Video Creator Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjAuNSIgc3Ryb2tlPSIjMDBGRkE1IiBzdHJva2Utd2lkdGg9IjMiLz4KPHBhdGggZD0iTTE2IDM0TDM0IDE2IiBzdHJva2U9IiMwMEZGQTUiIHN0cm9rZS13aWR0aD0iMyIvPgo8cGF0aCBkPSJNMzQgMzRMMTYgMTYiIHN0cm9rZT0iIzAwRkZBNSIgc3Ryb2tlLXdpZHRoPSIzIi8+Cjwvc3ZnPgo="
+    />
+    <meta
+      name="description"
+      content="Services offered by Atharva — editing, color grading, reels, promos, and more."
+    />
+    <style>
+      :root {
+        --primary: #00ffa5;
+        --secondary: #0085ff;
+        --accent: #bd00ff;
+        --dark: #0a0a14;
+        --darker: #05050c;
+        --light: #f5f5ff;
+        --gray: #8c8ca1;
+        --card-bg: rgba(255, 255, 255, 0.03);
+        --card-border: rgba(255, 255, 255, 0.07);
+        --glow: 0 0 15px rgba(0, 255, 165, 0.5);
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--darker);
+        color: var(--light);
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-image: radial-gradient(
+            circle at 15% 50%,
+            rgba(0, 133, 255, 0.05) 0%,
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 85% 30%,
+            rgba(189, 0, 255, 0.05) 0%,
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 50% 80%,
+            rgba(0, 255, 165, 0.05) 0%,
+            transparent 25%
+          );
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Header Styles */
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem 0;
+        z-index: 1000;
+        background: rgba(5, 5, 12, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--card-border);
+        transition: var(--transition);
+      }
+
+      .site-header.scrolled {
+        padding: 1rem 0;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--light);
+        font-weight: 700;
+        font-size: 1.5rem;
+        transition: var(--transition);
+      }
+
+      .logo img {
+        height: 40px;
+        margin-right: 0.75rem;
+        transition: var(--transition);
+      }
+
+      .logo:hover {
+        color: var(--primary);
+        text-shadow: var(--glow);
+      }
+
+      .logo:hover img {
+        filter: drop-shadow(var(--glow));
+      }
+
+      .hamburger {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--light);
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .hamburger:hover {
+        color: var(--primary);
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .site-nav a {
+        color: var(--light);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+        padding: 0.5rem 0;
+      }
+
+      .site-nav a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: var(--transition);
+      }
+
+      .site-nav a:hover {
+        color: var(--primary);
+      }
+
+      .site-nav a:hover::after,
+      .site-nav a.active::after {
+        width: 100%;
+      }
+
+      /* Page Hero */
+      .page-hero {
+        padding: 10rem 0 5rem;
+        text-align: center;
+        background: linear-gradient(to bottom, var(--darker), transparent);
+      }
+
+      .page-hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .page-hero p {
+        font-size: 1.2rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Section Styles */
+      section {
+        padding: 5rem 0;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 50px;
+        height: 4px;
+        background: var(--primary);
+        border-radius: 2px;
+      }
+
+      .link {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: var(--transition);
+      }
+
+      .link:hover {
+        gap: 1rem;
+        text-shadow: var(--glow);
+      }
+
+      /* Grid and Cards */
+      .grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .cards {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+
+      .card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 15px;
+        padding: 2rem;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(0, 255, 165, 0.05),
+          transparent
+        );
+        transform: translateY(100%);
+        transition: var(--transition);
+        z-index: 0;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        border-color: rgba(0, 255, 165, 0.2);
+      }
+
+      .card:hover::before {
+        transform: translateY(0);
+      }
+
+      .card__icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        display: inline-block;
+      }
+
+      .card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .card p {
+        color: var(--gray);
+      }
+
+      /* Pricing Cards */
+      .pricing-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+
+      .price {
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .price:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border-color: var(--primary);
+      }
+
+      .price__value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin: 1.5rem 0;
+        font-family: "Orbitron", sans-serif;
+      }
+
+      .price__list {
+        list-style: none;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      .price__list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--card-border);
+        color: var(--gray);
+      }
+
+      .price__list li:last-child {
+        border-bottom: none;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        transition: var(--transition);
+        z-index: -1;
+      }
+
+      .btn:hover::before {
+        width: 100%;
+      }
+
+      .primary {
+        background: var(--primary);
+        color: var(--dark);
+        box-shadow: 0 5px 15px rgba(0, 255, 165, 0.3);
+      }
+
+      .primary:hover {
+        box-shadow: 0 8px 25px rgba(0, 255, 165, 0.5);
+        transform: translateY(-3px);
+      }
+
+      /* Footer */
+      .site-footer {
+        background: var(--dark);
+        padding: 4rem 0 2rem;
+        text-align: center;
+        border-top: 1px solid var(--card-border);
+      }
+
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--card-bg);
+        color: var(--light);
+        text-decoration: none;
+        transition: var(--transition);
+        border: 1px solid var(--card-border);
+      }
+
+      .footer-social a:hover {
+        background: var(--primary);
+        color: var(--dark);
+        transform: translateY(-5px);
+        box-shadow: var(--glow);
+      }
+
+      .site-footer p {
+        color: var(--gray);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+
+        .site-nav {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background: var(--dark);
+          flex-direction: column;
+          padding: 2rem;
+          gap: 1.5rem;
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: var(--transition);
+          border-top: 1px solid var(--card-border);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .site-nav.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .page-hero h1 {
+          font-size: 2.5rem;
+        }
+      }
+
+      /* Utility Classes */
+      .text-center {
+        text-align: center;
+      }
+
+      .mt-1 {
+        margin-top: 1rem;
+      }
+      .mt-2 {
+        margin-top: 2rem;
+      }
+      .mt-3 {
+        margin-top: 3rem;
+      }
+      .mt-4 {
+        margin-top: 4rem;
+      }
+      .mt-5 {
+        margin-top: 5rem;
+      }
+
+      .mb-1 {
+        margin-bottom: 1rem;
+      }
+      .mb-2 {
+        margin-bottom: 2rem;
+      }
+      .mb-3 {
+        margin-bottom: 3rem;
+      }
+      .mb-4 {
+        margin-bottom: 4rem;
+      }
+      .mb-5 {
+        margin-bottom: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-container">
+        <a href="index.html" class="logo">
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjAuNSIgc3Ryb2tlPSIjMDBGRkE1IiBzdHJva2Utd2lkdGg9IjMiLz4KPHBhdGggZD0iTTE2IDM0TDM0IDE2IiBzdHJva2U9IiMwMEZGQTUiIHN0cm9rZS13aWR0aD0iMyIvPgo8cGF0aCBkPSJNMzQgMzRMMTYgMTYiIHN0cm9rZT0iIzAwRkZBNSIgc3Ryb2tlLXdpZHRoPSIzIi8+Cjwvc3ZnPgo="
+            alt="Atharva logo"
+          />
+          <span>Atharva_editz</span>
+        </a>
+
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="services.html" class="active">Services</a>
+          <a href="experience.html">Experience</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Services</h1>
+          <p>
+            From concept to delivery — I cover the full video production
+            pipeline.
+          </p>
+        </div>
+      </section>
+
+      <section class="services">
+        <div class="container">
+          <div class="grid cards">
+            <article class="card">
+              <i class="fa-solid fa-clapperboard card__icon"></i>
+              <h3>Video Editing</h3>
+              <p>
+                Clean cuts, smooth transitions, pacing, and sound design to keep
+                viewers hooked.
+              </p>
+            </article>
+            <article class="card">
+              <i class="fa-solid fa-palette card__icon"></i>
+              <h3>Color Grading</h3>
+              <p>
+                Give your footage a cinematic look with tasteful grading and
+                corrections.
+              </p>
+            </article>
+            <article class="card">
+              <i class="fa-solid fa-wand-magic-sparkles card__icon"></i>
+              <h3>Motion Graphics</h3>
+              <p>
+                Animated titles, lower thirds, logo reveals, and dynamic
+                infographics.
+              </p>
+            </article>
+            <article class="card">
+              <i class="fa-brands fa-instagram card__icon"></i>
+              <h3>Reels & Shorts</h3>
+              <p>
+                Platform-optimized vertical edits with strong hooks and fast
+                pacing.
+              </p>
+            </article>
+            <article class="card">
+              <i class="fa-solid fa-bullhorn card__icon"></i>
+              <h3>Promos & Ads</h3>
+              <p>
+                Concept, script, edit — persuasive videos tailored for
+                conversions.
+              </p>
+            </article>
+            <article class="card">
+              <i class="fa-solid fa-camera card__icon"></i>
+              <h3>On-Set Support</h3>
+              <p>
+                Shot planning, B-roll, and direction to lift your production
+                quality.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Starter Packages</h2>
+          </div>
+          <div class="grid cards pricing-grid">
+            <article class="card price">
+              <h3>Creator Starter</h3>
+              <p class="price__value">₹4,999</p>
+              <ul class="price__list">
+                <li>Up to 60s vertical edit</li>
+                <li>Basic captions</li>
+                <li>1 revision</li>
+              </ul>
+              <a class="btn primary" href="contact.html">Book Now</a>
+            </article>
+            <article class="card price">
+              <h3>Business Promo</h3>
+              <p class="price__value">₹14,999</p>
+              <ul class="price__list">
+                <li>30–90s promo</li>
+                <li>Custom graphics</li>
+                <li>2 revisions</li>
+              </ul>
+              <a class="btn primary" href="contact.html">Book Now</a>
+            </article>
+            <article class="card price">
+              <h3>Cinematic Pack</h3>
+              <p class="price__value">₹29,999</p>
+              <ul class="price__list">
+                <li>2–3 min cinematic edit</li>
+                <li>Advanced grading</li>
+                <li>3 revisions</li>
+              </ul>
+              <a class="btn primary" href="contact.html">Book Now</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a href="#" aria-label="GitHub"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a href="#" aria-label="X / Twitter"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+        <p>© <span id="year"></span> Atharva • Video Creator & Editor</p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set current year in footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector(".hamburger");
+        const siteNav = document.querySelector(".site-nav");
+
+        hamburger.addEventListener("click", () => {
+          siteNav.classList.toggle("active");
+          hamburger.setAttribute(
+            "aria-expanded",
+            hamburger.getAttribute("aria-expanded") === "false"
+              ? "true"
+              : "false"
+          );
+        });
+
+        // Header scroll effect
+        const header = document.querySelector(".site-header");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
