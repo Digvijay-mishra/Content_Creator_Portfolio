@@ -564,6 +564,14 @@
           <div class="contact-container">
             <div class="contact-info">
               <div class="info-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <h3>phone</h3>
+                  <p>7447571375</p>
+                </div>
+              </div>
+
+              <div class="info-item">
                 <i class="fa-solid fa-envelope"></i>
                 <div>
                   <h3>Email</h3>
@@ -588,7 +596,7 @@
                 <i class="fa-solid fa-calendar"></i>
                 <div>
                   <h3>Availability</h3>
-                  <p>Available for projects worldwide</p>
+                  <p>Available for all editing / shooting projects</p>
                 </div>
               </div>
             </div>
@@ -719,7 +727,7 @@
 
           try {
             // Send form data to server
-            const response = await fetch("https://formspree.io/f/mjvnezba", {
+            const response = await fetch("http://localhost:3000/api/contact", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

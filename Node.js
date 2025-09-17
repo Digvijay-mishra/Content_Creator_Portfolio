@@ -13,11 +13,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Email transporter setup
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: process.env.EMAIL_USER, // Gmail ID
+    pass: process.env.EMAIL_PASS, // Gmail App Password (16 chars, no spaces)
+  },
+  tls: {
+    rejectUnauthorized: false, // Fixes self-signed cert error
   },
 });
 
@@ -26,14 +29,15 @@ app.post("/api/contact", async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
 
-    // Validate required fields
+    // Validate fields
     if (!name || !email || !subject || !message) {
       return res.status(400).json({ error: "All fields are required" });
     }
 
-    // Email content
+    // Email to YOU
     const mailOptions = {
-      from: email,
+      from: process.env.EMAIL_USER,
+      replyTo: email, // so you can directly reply to the user
       to: ["atharvanebhani9@gmail.com", "digvijaymishra2122@gmail.com"],
       subject: `Portfolio Contact: ${subject}`,
       html: `
@@ -54,10 +58,9 @@ app.post("/api/contact", async (req, res) => {
       `,
     };
 
-    // Send email
     await transporter.sendMail(mailOptions);
 
-    // Send confirmation to user
+    // Confirmation Email to USER
     const userMailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
@@ -67,7 +70,7 @@ app.post("/api/contact", async (req, res) => {
           <h2 style="color: #00ffa5;">Thank you for your message!</h2>
           <p>Hi ${name},</p>
           <p>I've received your message and will get back to you as soon as possible.</p>
-          <p>Here's a copy of your message:</p>
+          <p>Here’s a copy of your message:</p>
           <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
             ${message.replace(/\n/g, "<br>")}
           </div>
@@ -82,13 +85,13 @@ app.post("/api/contact", async (req, res) => {
 
     await transporter.sendMail(userMailOptions);
 
-    res.status(200).json({ message: "Email sent successfully" });
+    res.status(200).json({ message: "✅ Email sent successfully" });
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("❌ Error sending email:", error);
     res.status(500).json({ error: "Failed to send email" });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
